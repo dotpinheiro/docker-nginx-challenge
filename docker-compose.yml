@@ -3,10 +3,8 @@ services:
   app:
     container_name: app
     build: 
-      context: ./containers/node
-      dockerfile: Dockerfile
-    volumes:
-      - ./:/usr/src/app
+      context: .
+      dockerfile: ./containers/node/Dockerfile
     networks:
       - application
     entrypoint: dockerize -wait tcp://mysql:3306 -timeout 60s docker-entrypoint.sh

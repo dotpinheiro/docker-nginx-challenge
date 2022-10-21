@@ -2,10 +2,11 @@ FROM node:15-alpine as runner
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY package*.json .
 
 RUN npm install
 
+COPY . .
 
 RUN apk add --no-cache openssl
 
